@@ -17,7 +17,10 @@
             <?php
                 $no = 1; 
                 if($query->rowCount() == 0){?>
-                    <div id="box-alret">Data Kosong</div>
+                    <div id="box-alret">Data Rekaman Kosong</div>
+                    <div>
+                        <button onClick="location.href='upload.php'" style="margin-top: 10px;" class="btn btn-sm btn-primary">Tambah Data</button>
+                    </div>
             <?php
                 }
                 else {?>
