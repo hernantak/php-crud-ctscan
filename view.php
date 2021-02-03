@@ -2,6 +2,9 @@
     include 'koneksi.php';
     $query = $db->prepare("SELECT * FROM dataset");
     $query->execute();
+
+    $query_img = $db->prepare("SELECT * FROM image_data");
+    $query_img->execute();
 ?>
 <style>
     #box-alret{
@@ -41,11 +44,14 @@
                             <td p align="left" bgcolor="#FFFFFF"><?php echo $value['medic_record'] ?></td>
                             <td p align="left" bgcolor="#FFFFFF">                
                                 <?php 
-                                    if($value['status'] == NULL){
-                                        echo "Belum Validasi";
-                                    } else {
-                                        echo $value['status']; 
-                                    }?>    
+                                    $value_img = $query_img->fetch();
+                                    $tmp_dataset_id = $value['dataset_id'];
+                                    if($value_img['dataset_id'] == $tmp_dataset_id && $value_img['validate'] != NULL){
+                                            echo "Sudah Validasi";
+                                        } else {
+                                            echo "Belum Validasi"; 
+                                    }
+                                ?>    
                             </td>
                             <td class="align-middle text-center">
                                 <a href="" class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span></a>

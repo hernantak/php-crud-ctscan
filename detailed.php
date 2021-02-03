@@ -1,8 +1,16 @@
 <?php
     include 'koneksi.php';
-    $query = $db->prepare("SELECT * FROM image_data");
+    if(!isset($_GET['dataset_id'])){
+        die("Error: Dataset ID Tidak Dimasukkans");
+    }
+    $query = $db->prepare("SELECT * FROM `image_data` WHERE dataset_id = :dataset_id");
+    $query->bindParam(":dataset_id", $_GET['dataset_id']);
     $query->execute();
-    $data = $query->fetch()
+    if($query->rowCount() == 0){
+        die("Error: Dataset ID Tidak Ditemukan");
+    }else{
+        $data = $query->fetch();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

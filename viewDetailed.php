@@ -1,6 +1,10 @@
 <?php
     include 'koneksi.php';
-    $query = $db->prepare("SELECT * FROM image_data");
+    if(!isset($_GET['dataset_id'])){
+        die("Error: Dataset ID Tidak Dimasukkan");
+    }
+    $query = $db->prepare("SELECT * FROM `image_data` WHERE dataset_id = :dataset_id");
+    $query->bindParam(":dataset_id", $_GET['dataset_id']);
     $query->execute();
 ?>
 <style>
@@ -13,21 +17,21 @@
 </style>
 <div class="table-responsive">
 	<table class="table table-bordered">
-            <?php
-                $no = 1; 
-                if($query->rowCount() == 0){?>
-                    <div id="box-alret">Data Gambar Kosong</div>
-            <?php
-                }
-                else {?>
-					<tr>
-						<th class="text-center">NO</th>
-						<th>IMG DATA ID</th>
-						<th>DATASET DATA ID</th>
-						<th>HASIL VALIDASI</th>
-						<th colspan="2" class="text-center"><span class="glyphicon glyphicon-cog"></span></th>
+        <?php
+            $no = 1; 
+            if($query->rowCount() == 0){?>
+                <div id="box-alret">Data Gambar Kosong</div>
+        <?php
+            }
+            else {?>
+				<tr>
+					<th class="text-center">NO</th>
+					<th>IMG DATA ID</th>
+					<th>DATASET DATA ID</th>
+					<th>HASIL VALIDASI</th>
+					<th colspan="2" class="text-center"><span class="glyphicon glyphicon-cog"></span></th>
 					</tr>     
-            <?php        
+	            <?php        
 				while($data = $query->fetch()){?>
 					<tr>
 						<td class="align-middle text-center"><?php echo $no; ?></td>
