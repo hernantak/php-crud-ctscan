@@ -9,26 +9,28 @@
         $query->bindParam(":dataset_id", $_GET["dataset_id"]);
         // Jalankan Perintah SQL
         $query->execute();
-    }
 
-    // Ambil data NIS
-    $dataset_id = $_POST['dataset_id'];
+        //delet img
+        $sqlcek = $db->prepare("SELECT * FROM `image_data` WHERE dataset_id=:dataset_id");
+        $sqlcek->bindParam(":dataset_id", $_GET["dataset_id"]);
+        $sqlcek->execute(); // Eksekusi / Jalankan query
+        // $data = $sqlcek->fetch(); // Ambil data dari hasil eksekusi $sqlcek
 
-    $sqlcek = $db->prepare("SELECT * FROM image_data WHERE dataset_id=:dataset_id");
-    $sqlcek->bindParam(':dataset_id', $dataset_id);
-    $sqlcek->execute(); // Eksekusi / Jalankan query
-    $data = $sqlcek->fetch(); // Ambil data dari hasil eksekusi $sqlcek
+        while($data = $sqlcek->fetch()){ 
 
-    // Cek apakah file fotonya ada di folder foto
-    if(is_file($data["file_path"])) // Jika foto ada
-        unlink($data["file_path"]); // Hapus file fotonya yang ada di folder foto
+        // Cek apakah file fotonya ada di folder foto
+        if(is_file($data["file_path"])) // Jika foto ada
+            unlink($data["file_path"]); // Hapus file fotonya yang ada di folder foto
 
-    // Query untuk menghapus data siswa berdasarkan NIS yang dikirim
-    $sql = $db->prepare("DELETE FROM image_data WHERE dataset_id=:dataset_id");
-    $sql->bindParam(':dataset_id', $dataset_id);
-    $sql->execute(); // Eksekusi/Jalankan query    
+        }
 
+        //delete data
+        // Prepared statement untuk menghapus data
+        $sql = $db->prepare("DELETE FROM `image_data` WHERE dataset_id=:dataset_id");
+        $sql->bindParam(":dataset_id", $_GET["dataset_id"]);
+        $sql->execute(); // Eksekusi/Jalankan query  
 
+    }  
 
     header("location: data.php");
 ?>
