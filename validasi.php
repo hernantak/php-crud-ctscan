@@ -102,7 +102,12 @@
       <!-- <div style="text-align: center;" class="col-xs-6">Slide Show</div> -->
         <div class="col-xs-6">
           <div class="form-signin">
-            <img style="width:640px;height:480px;" src=<?php echo $data['file_path'] ?>>
+            <img style="width:640px;height:480px;" 
+            src=<?php 
+                $url = rawurldecode($data['file_path']);
+                echo $url;  
+                ?>
+            >
           </div>
         </div>
       <div class="col-xs-6">
@@ -114,7 +119,7 @@
             <form method="post" action="system/login.php">
                 <div class="form-group">
                     <label>IMG DATA ID</label>
-                    <p style="border-style: ridge; padding: 12px;"><?php echo $data['dataset_id'] ?></p>
+                    <p style="border-style: ridge; padding: 12px;"><?php echo $data['file_name'] ?></p>
                 </div>
                 <div class="form-group">
                     <label>HASIL VALIDASI</label>
@@ -134,12 +139,8 @@
                     <div class="col-xs-6">
                       <button class="btn btn-lg btn-default btn-validasi-css" type="submit">TIDAK VALID</button>  
                     </div>
-
                 </div>
-
-
             </form>
-
         </div>
 
       </div>

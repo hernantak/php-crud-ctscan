@@ -61,7 +61,7 @@
 					<a href="validasi.php?file_name=<?php echo $data['file_name']?>" class="btn btn-default"><span class="glyphicon glyphicon-check"></span></a>
 				</td>
 				<td class="align-middle text-center">
-					<a href="javascript:void();" data-toggle="modal" data-target="#delete-modal" onclick="hapus(<?php echo $no; ?>);" class="btn btn-danger"><span class="glyphicon glyphicon-erase"></span></a>
+					<a href="delete_img.php?file_name=<?php echo $data['file_name']?>" class="btn btn-danger"><span class="glyphicon glyphicon-erase"></span></a>
 				</td>
 			</tr>
 		<?php
