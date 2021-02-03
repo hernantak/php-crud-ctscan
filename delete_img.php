@@ -21,5 +21,9 @@
 
     }
 
-    header("location: detailed.php");
+    $go = $db->prepare("SELECT * FROM image_data");
+    $go->execute(); // Eksekusi / Jalankan query
+    $loc = $go->fetch(); // Ambil data dari hasil eksekusi $sqlcek
+    $url = $loc['dataset_id'];
+    header("location: detailed.php"."?dataset_id=".$url);
 ?>

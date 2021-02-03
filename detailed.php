@@ -7,7 +7,7 @@
     $query->bindParam(":dataset_id", $_GET['dataset_id']);
     $query->execute();
     if($query->rowCount() == 0){
-        die("Error: Dataset ID Tidak Ditemukan");
+        die("[Info] Gambar Kosong!");
     }else{
         $data = $query->fetch();
     }
