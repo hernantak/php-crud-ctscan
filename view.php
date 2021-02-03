@@ -3,8 +3,8 @@
     $query = $db->prepare("SELECT * FROM dataset");
     $query->execute();
 
-    $query_img = $db->prepare("SELECT * FROM image_data");
-    $query_img->execute();
+    // $query_img = $db->prepare("SELECT * FROM image_data");
+    // $query_img->execute();
 ?>
 <style>
     #box-alret{
@@ -44,13 +44,15 @@
                             <td p align="left" bgcolor="#FFFFFF"><?php echo $value['medic_record'] ?></td>
                             <td p align="left" bgcolor="#FFFFFF">                
                                 <?php 
-                                    $value_img = $query_img->fetch();
-                                    $tmp_dataset_id = $value['dataset_id'];
-                                    if($value_img['dataset_id'] == $tmp_dataset_id && $value_img['validate'] != NULL){
-                                            echo "Sudah Validasi";
-                                        } else {
-                                            echo "Belum Validasi"; 
-                                    }
+                                    $temp = $value['dataset_id'];
+                                    $query_img = $db->prepare("SELECT * FROM image_data WHERE dataset_id = '$temp'");
+                                    $query_img->bindParam(":dataset_id", $_GET['temp']);
+                                    $query_img->execute();    
+                                    $value_img = $query_img->fetch();   
+                                    if($value_img['dataset_id'] == $temp && $value_img['validate'] !== NULL)                        
+                                       echo "Sudah Validasi";
+                                    else 
+                                        echo "Belum Validasi";
                                 ?>    
                             </td>
                             <td class="align-middle text-center">
@@ -69,6 +71,7 @@
                         <?php
                             $no++; 
                     }
-                }?>
+                }
+                ?>
     </table>
 </div>

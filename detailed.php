@@ -6,11 +6,7 @@
     $query = $db->prepare("SELECT * FROM `image_data` WHERE dataset_id = :dataset_id");
     $query->bindParam(":dataset_id", $_GET['dataset_id']);
     $query->execute();
-    if($query->rowCount() == 0){
-        die("Error: Dataset ID Tidak Ditemukan");
-    }else{
-        $data = $query->fetch();
-    }
+    $data = $query->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="en">
