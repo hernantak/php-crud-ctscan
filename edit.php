@@ -21,7 +21,7 @@
       // $query->bindParam(":kelas", $kelas);
       $query->bindParam(":dataset_id", $_GET['dataset_id']);
       $query->execute();
-      header("location: index.php");
+      header("location: data.php");
   }
 ?>
 

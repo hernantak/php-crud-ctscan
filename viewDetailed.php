@@ -34,10 +34,10 @@
 						<td class="align-middle"><?php echo $data['file_name']; ?></td>
 						<td class="align-middle"><?php echo $data['dataset_id']; ?></td>
 						<td class="align-middle"><?php 
-							if($data['status'] == NULL){
+							if($data['validate'] == NULL){
 								echo "Belum Validasi";
 							} else {
-								echo $data['status']; 
+								echo $data['validate']; 
 							}?>
 						</td>				
 						<td class="align-middle text-center">

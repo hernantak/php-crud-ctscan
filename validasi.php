@@ -1,28 +1,36 @@
 <?php
     include 'koneksi.php';
     if(!isset($_GET['file_name'])){
-        die("Error: Dataset ID Tidak Dimasukkansu");
+        die("[Error] IMG DATA ID tidak ditemukan!");
     }
     $query = $db->prepare("SELECT * FROM `image_data` WHERE file_name = :file_name");
     $query->bindParam(":file_name", $_GET['file_name']);
     $query->execute();
-    if($query->rowCount() == 0){
-        die("Error: Dataset ID Tidak Ditemukanvv");
+    if($query->rowCount() == 0){?>
+    <div id="box-alret">Data Rekaman Kosong</div>
+<?php
     }else{
         $data = $query->fetch();
+        $url = $data['dataset_id'];
     }
-    if(isset($_POST['submit'])){
-        $dataset_name = htmlentities($_POST['dataset_name']);
-        $medic_record = htmlentities($_POST['medic_record']);
-        // $kelas = htmlentities($_POST['kelas']);
-        $query = $db->prepare("UPDATE `dataset` SET `dataset_name`=:dataset_name,`medic_record`=:medic_record WHERE dataset_id=:dataset_id");
-        $query->bindParam(":dataset_name", $dataset_name);
-        $query->bindParam(":medic_record", $medic_record);
-        // $query->bindParam(":kelas", $kelas);
-        $query->bindParam(":dataset_id", $_GET['dataset_id']);
+
+    if(isset($_POST['validasi'])){
+        $validate = "Valid";
+        $query = $db->prepare("UPDATE `image_data` SET `validate`=:validate WHERE file_name=:file_name");
+        $query->bindParam(":validate", $validate);
+        $query->bindParam(":file_name", $_GET['file_name']);
         $query->execute();
-        header("location: index.php");
+        header("Refresh:0");
     }
+
+    if(isset($_POST['not'])){
+        $validate = "Tidak Valid";
+        $query = $db->prepare("UPDATE `image_data` SET `validate`=:validate WHERE file_name=:file_name");
+        $query->bindParam(":validate", $validate);
+        $query->bindParam(":file_name", $_GET['file_name']);
+        $query->execute();
+        header("Refresh:0");
+    }    
 ?>
 
 <!DOCTYPE html>
@@ -91,11 +99,20 @@
         display: block;
         width: 100%;
     }
+    #box-alret{
+        background: #f2dede;
+        padding: 8px;
+        text-align: center;
+        font-weight: bold;
+    }       
     </style>
 </head>
 <body>
+    <?php
+        
+    ?>
     <div class="menu-css">
-        <button onclick="history.back()" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> VALIDASI HASIL DATASET CTSCAN <?php echo $data['file_name'] ?></button>
+        <button onClick="location.href='detailed.php?dataset_id=<?php echo $url ?>'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> VALIDASI HASIL DATASET CTSCAN <?php echo $data['file_name'] ?></button>
     </div>
 
     <div class="row">
@@ -116,7 +133,7 @@
 
 
 
-            <form method="post" action="system/login.php">
+            <form method="post">
                 <div class="form-group">
                     <label>IMG DATA ID</label>
                     <p style="border-style: ridge; padding: 12px;"><?php echo $data['file_name'] ?></p>
@@ -124,20 +141,20 @@
                 <div class="form-group">
                     <label>HASIL VALIDASI</label>
                     <p style="border-style: ridge; padding: 12px;"><?php 
-                    if($data['status'] == NULL){
+                    if($data['validate'] == NULL){
                         echo "Belum Validasi";
                     } else {
-                        echo $data['status']; 
+                        echo $data['validate']; 
                     }
                     ?></p>
                 </div>
 
                 <div class="row">
                     <div class="col-xs-6">
-                      <button class="btn btn-lg btn-primary btn-validasi-css" type="submit">VALID</button>  
+                      <input value="Valid" name="validasi" class="btn btn-lg btn-primary btn-validasi-css" type="submit"></input>  
                     </div>
                     <div class="col-xs-6">
-                      <button class="btn btn-lg btn-default btn-validasi-css" type="submit">TIDAK VALID</button>  
+                      <input value="Tidak Valid" name="not" class="btn btn-lg btn-default btn-validasi-css" type="submit"></input>  
                     </div>
                 </div>
             </form>
