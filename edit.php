@@ -1,24 +1,22 @@
 <?php
   include 'koneksi.php';
   if(!isset($_GET['dataset_id'])){
-      die("Error: Dataset ID Tidak Dimasukkan");
+      die("[Error] Dataset ID Tidak Dimasukkan");
   }
   $query = $db->prepare("SELECT * FROM `dataset` WHERE dataset_id = :dataset_id");
   $query->bindParam(":dataset_id", $_GET['dataset_id']);
   $query->execute();
   if($query->rowCount() == 0){
-      die("Error: Dataset ID Tidak Ditemukan");
+      die("[Error] Dataset ID Tidak Ditemukan");
   }else{
       $data = $query->fetch();
   }
   if(isset($_POST['submit'])){
       $dataset_name = htmlentities($_POST['dataset_name']);
       $medic_record = htmlentities($_POST['medic_record']);
-      // $kelas = htmlentities($_POST['kelas']);
       $query = $db->prepare("UPDATE `dataset` SET `dataset_name`=:dataset_name,`medic_record`=:medic_record WHERE dataset_id=:dataset_id");
       $query->bindParam(":dataset_name", $dataset_name);
       $query->bindParam(":medic_record", $medic_record);
-      // $query->bindParam(":kelas", $kelas);
       $query->bindParam(":dataset_id", $_GET['dataset_id']);
       $query->execute();
       header("location: data.php");

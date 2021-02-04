@@ -30,8 +30,19 @@
     $query->bindParam(":medic_record", $medic_record);
     $query->bindParam(":created_date", $created_date);
     $query->execute();
-    
+
+    $query_dat = $db->prepare("SELECT * FROM dataset WHERE dataset_id=:dataset_id");
+    $query_dat->bindParam(":dataset_id", $dataset_id);
+    $query_dat->execute();
+
+    $value = $query_dat->fetch();
+
     //data image
+    $temp_folder = $value['dataset_id'];
+    $folder_name = 'upload/'.$temp_folder;
+    mkdir($folder_name,0777,true);
+    chmod($folder_name, 0777);
+
     $countfiles = count($_FILES['files']['name']);
     $validate = NULL;
     $created_at = $created_date;
@@ -50,9 +61,9 @@
       $valid_ext = array("png","jpeg","jpg");
       if(in_array($ext, $valid_ext)){
         // Upload file
-        if(move_uploaded_file($_FILES['files']['tmp_name'][$i],'upload/'.$filename)){
+        if(move_uploaded_file($_FILES['files']['tmp_name'][$i],$folder_name.'/'.$filename)){
           // Execute query
-          $statement->execute(array($filename,'upload/'.$filename,$validate,$dataset_id,$created_at,$updated_at));
+          $statement->execute(array($filename,$folder_name.'/'.$filename,$validate,$dataset_id,$created_at,$updated_at));
         }
       }
     }
