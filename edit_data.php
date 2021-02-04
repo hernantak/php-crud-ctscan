@@ -1,9 +1,32 @@
 <?php
-include "system/koneksi.php";
+  include 'koneksi.php';
+  if(!isset($_GET['dataset_id'])){
+      die("Error: Dataset ID Tidak Dimasukkan");
+  }
+  $query = $db->prepare("SELECT * FROM `dataset` WHERE dataset_id = :dataset_id");
+  $query->bindParam(":dataset_id", $_GET['dataset_id']);
+  $query->execute();
+  if($query->rowCount() == 0){
+      die("Error: Dataset ID Tidak Ditemukan");
+  }else{
+      $data = $query->fetch();
+  }
+  if(isset($_POST['submit'])){
+      $dataset_name = htmlentities($_POST['dataset_name']);
+      $medic_record = htmlentities($_POST['medic_record']);
+      // $kelas = htmlentities($_POST['kelas']);
+      $query = $db->prepare("UPDATE `dataset` SET `dataset_name`=:dataset_name,`medic_record`=:medic_record WHERE dataset_id=:dataset_id");
+      $query->bindParam(":dataset_name", $dataset_name);
+      $query->bindParam(":medic_record", $medic_record);
+      // $query->bindParam(":kelas", $kelas);
+      $query->bindParam(":dataset_id", $_GET['dataset_id']);
+      $query->execute();
+      header("location: data.php");
+  }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,20 +88,20 @@ include "system/koneksi.php";
 </head>
 <body>
     <div class="menu-css">
-        <button class="btn btn-lg btn-block" type="submit"><i class="fas fa-arrow-circle-left"></i> EDIT DATASET</button>
+        <button onClick="location.href='data.php'" class="btn btn-lg btn-block" type="button"><i class="fas fa-arrow-circle-left"></i> EDIT DATASET</button>
     </div>
 
     <div class="container">
         <div class="form-signin">
 
-            <form method="post" action="system/login.php">
+            <form method="post">
                 <div class="form-group">
                     <label>NAMA DATASET</label>
-                    <input type="text" class="form-control" name="username" required autofocus>
+                    <input type="text" class="form-control" name="dataset_name" value="<?php echo $data['dataset_name'] ?>">
                 </div>
                 <div class="form-group">
                     <label>NOMOR REKAM MEDIS</label>
-                    <input type="password" class="form-control" name="password" required>
+                    <input type="text" class="form-control" name="medic_record" value="<?php echo $data['medic_record'] ?>">
                 </div>
             </form>
 
@@ -87,7 +110,7 @@ include "system/koneksi.php";
     </div>
 
     <div class="btn-cnter-css">
-      <button class="btn btn-lg btn-primary btn-block" type="submit">SIMPAN</button>  
+      <input type="submit" name="submit" value="EDIT"></input>  
     </div>
 
 </body>

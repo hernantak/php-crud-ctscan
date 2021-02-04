@@ -49,7 +49,7 @@
                                     $query_img->bindParam(":dataset_id", $_GET['temp']);
                                     $query_img->execute();    
                                     $value_img = $query_img->fetch();   
-                                    if($value_img['dataset_id'] == $temp && $value_img['validate'] !== NULL)                        
+                                    if(($value_img['dataset_id'] === $temp) && ($value_img['validate'] !== NULL))                        
                                        echo "Sudah Validasi";
                                     else 
                                         echo "Belum Validasi";
