@@ -56,7 +56,7 @@
                                 ?>    
                             </td>
                             <td class="align-middle text-center">
-                                <a href="" class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span></a>
+                                <a href="download.php?dataset_id=<?php echo $value['dataset_id']?>" class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span></a>
                             </td>   
                             <td class="align-middle text-center">
                                 <a href="detailed.php?dataset_id=<?php echo $value['dataset_id']?>" class="btn btn-default"><span class="glyphicon glyphicon-check"></span></a>
