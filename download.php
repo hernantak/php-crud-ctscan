@@ -27,13 +27,12 @@
 
         // Initialize archive object
         $zip = new ZipArchive();
-        $zip->open($zip_file, ZipArchive::CREATE | ZipArchive::OVERWRITE);
+        $zip->open($zip_file, ZipArchive::CREATE);
 
         // Create recursive directory iterator
         /** @var SplFileInfo[] $files */
         $files = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($rootPath),
-            RecursiveIteratorIterator::LEAVES_ONLY
+            new RecursiveDirectoryIterator($rootPath)
         );
 
         foreach ($files as $name => $file)
@@ -62,6 +61,9 @@
         header('Pragma: public');
         header('Content-Length: ' . filesize($zip_file));
         readfile($zip_file);
+
+        if(is_file($zip_file)) 
+            unlink($zip_file); 
     }
 
 ?>
