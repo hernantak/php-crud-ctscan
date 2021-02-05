@@ -7,11 +7,12 @@
     $query->bindParam(":file_name", $_GET['file_name']);
     $query->execute();
     if($query->rowCount() == 0){?>
-    <div id="box-alret">Data Rekaman Kosong</div>
+        <div id="box-alret">Data Rekaman Kosong</div>
 <?php
-    }else{
+    } else {
         $data = $query->fetch();
         $url = $data['dataset_id'];
+        $back = $data['dataset_id'];
     }
 
     if(isset($_POST['validasi'])){
@@ -90,7 +91,7 @@
     }
     .menu-css {
         padding-top: 20px;
-        padding-bottom: 60px;
+        padding-bottom: 80px;
     }
     .btn-css {
         background-color: white;
@@ -108,31 +109,33 @@
     </style>
 </head>
 <body>
-    <?php
-        
-    ?>
     <div class="menu-css">
         <button onClick="location.href='detailed.php?dataset_id=<?php echo $url ?>'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> VALIDASI HASIL DATASET CTSCAN <?php echo $data['file_name'] ?></button>
     </div>
-
-    <div class="row">
-      <!-- <div style="text-align: center;" class="col-xs-6">Slide Show</div> -->
+    <div>
         <div class="col-xs-6">
           <div class="form-signin">
-            <img style="width:640px;height:480px;" 
-            src=<?php 
+            <img style="    width: 470px;height: 320px;padding-bottom: 10px;" 
+                src=<?php 
                 $url = rawurldecode($data['file_path']);
-                echo $url;  
-                ?>
+                echo $url;?>
             >
+            <div>
+                <form method="post">
+                    <div class="row row-no-gutters" style="margin-top: 5px;">
+                        <div class="col-xs-6">
+                          <button onClick="location.href='detailed.php?dataset_id=<?php echo $back ?>'" class="btn btn-lg btn-primary btn-validasi-css" type="button">Back</button>
+                        </div>
+                        <div class="col-xs-6">
+                          <button onClick="location.href='detailed.php?dataset_id=<?php echo $back ?>'" class="btn btn-lg btn-default btn-validasi-css" type="button">Next</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
           </div>
         </div>
       <div class="col-xs-6">
-
           <div class="form-signin">
-
-
-
             <form method="post">
                 <div class="form-group">
                     <label>IMG DATA ID</label>
@@ -148,18 +151,16 @@
                     }
                     ?></p>
                 </div>
-
-                <div class="row">
+                <div >
                     <div class="col-xs-6">
                       <input value="Valid" name="validasi" class="btn btn-lg btn-primary btn-validasi-css" type="submit"></input>  
                     </div>
                     <div class="col-xs-6">
                       <input value="Tidak Valid" name="not" class="btn btn-lg btn-default btn-validasi-css" type="submit"></input>  
                     </div>
-                </div>
+                </div>             
             </form>
         </div>
-
       </div>
     </div>
 
