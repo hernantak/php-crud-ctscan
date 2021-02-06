@@ -137,7 +137,7 @@
       <div class="col-xs-6">
           <div class="form-signin">
             <form method="post">
-                <div class="form-group">
+                <div class="form-group" style="padding-top: 50px;">
                     <label>IMG DATA ID</label>
                     <p style="border-style: ridge; padding: 12px;"><?php echo $data['file_name'] ?></p>
                 </div>
@@ -148,8 +148,7 @@
                         echo "Belum Validasi";
                     } else {
                         echo $data['validate']; 
-                    }
-                    ?></p>
+                    }?></p>
                 </div>
                 <div >
                     <div class="col-xs-6">
