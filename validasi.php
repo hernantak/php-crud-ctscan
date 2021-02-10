@@ -1,19 +1,39 @@
 <?php
     include 'koneksi.php';
-    if(!isset($_GET['file_name'])){
+    if(!isset($_GET['dataset_id'])){
         die("[Error] IMG DATA ID tidak ditemukan!");
     }
-    $query = $db->prepare("SELECT * FROM `image_data` WHERE file_name = :file_name");
-    $query->bindParam(":file_name", $_GET['file_name']);
-    $query->execute();
-    if($query->rowCount() == 0){?>
-        <div id="box-alret">Data Rekaman Kosong</div>
-<?php
-    } else {
-        $data = $query->fetch();
-        $url = $data['dataset_id'];
-        $back = $data['dataset_id'];
+    $dataset_id=$_GET['dataset_id'];
+    $file_name = $_GET['file_name'];
+
+    //prev data
+    $prev;
+    $query_prev = $db->prepare("SELECT * FROM `image_data` WHERE file_name < '$file_name' AND dataset_id = '$dataset_id' ORDER BY file_name DESC LIMIT 1");
+    $query_prev->execute();
+    while($data_prev = $query_prev->fetch()){
+        $prev=$data_prev['file_name'];
     }
+    
+    //next data
+    $next;
+    $query_next = $db->prepare("SELECT * FROM `image_data` WHERE file_name > '$file_name' AND dataset_id='$dataset_id' ORDER BY file_name ASC LIMIT 1");
+    $query_next->execute(); 
+    while($data_next = $query_next->fetch()){ 
+        $next=$data_next['file_name'];
+    }
+
+    //data
+    $query_dat = $db->prepare("SELECT * FROM `image_data` WHERE file_name = '$file_name' AND dataset_id='$dataset_id'");
+    $query_dat->execute(); 
+
+    if($query_dat->rowCount() == 0){?>
+        <div id="box-alret">Data Rekaman Kosong</div>
+    <?php
+    } else {
+        $data   = $query_dat->fetch();
+        $img_id = $data['file_name'];
+        $dat_validate = $data['validate'];
+    }    
 
     if(isset($_POST['validasi'])){
         $validate = "Valid";
@@ -61,16 +81,16 @@
 
     }
 
-    .form-signin {
+    .form-css {
         max-width: 500px;
         padding: 15px;
         margin: 0 auto;
     }
-    .form-signin .form-signin-heading{
+    .form-css .form-css-heading{
         margin-bottom: 10px;
         text-align: center;
     }
-    .form-signin .form-control {
+    .form-css .form-control {
         position: relative;
         height: auto;
         -webkit-box-sizing: border-box;
@@ -79,7 +99,7 @@
         padding: 10px;
         font-size: 16px;
     }
-    .form-signin .form-control:focus {
+    .form-css .form-control:focus {
         z-index: 2;
     }
     .btn-block {
@@ -110,44 +130,50 @@
 </head>
 <body>
     <div class="menu-css">
-        <button onClick="location.href='detailed.php?dataset_id=<?php echo $url ?>'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> VALIDASI HASIL DATASET CTSCAN <?php echo $data['file_name'] ?></button>
+        <button onClick="location.href='detailed.php?dataset_id=<?php echo $dataset_id ?>'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> VALIDASI HASIL DATASET CTSCAN <?php echo $data['file_name'] ?></button>
     </div>
     <div>
         <div class="col-xs-6">
-          <div class="form-signin">
+          <div class="form-css">
             <img style="    width: 470px;height: 320px;padding-bottom: 10px;" 
                 src=<?php 
-                $url = rawurldecode($data['file_path']);
+                $url = rawurldecode("upload/".$dataset_id."/".$file_name);
                 echo $url;?>
             >
             <div>
                 <form method="post">
                     <div class="row row-no-gutters" style="margin-top: 5px;">
+                        <?php if($prev !== NULL){ ?>
+                            <div class="col-xs-6">
+                              <button onClick="location.href='validasi.php?dataset_id=<?php echo $dataset_id ?>&file_name=<?php echo $prev ?>'" class="btn btn-lg btn-default btn-validasi-css" type="button">Back</button>
+                            </div>
+                        <?php 
+                        } 
+                        if($next !== NULL){
+                        ?>
                         <div class="col-xs-6">
-                          <button onClick="location.href='detailed.php?dataset_id=<?php echo $back ?>'" class="btn btn-lg btn-primary btn-validasi-css" type="button">Back</button>
+                          <button onClick="location.href='validasi.php?dataset_id=<?php echo $dataset_id ?>&file_name=<?php echo $next ?>'" class="btn btn-lg btn-primary btn-validasi-css" type="button">Next</button>
                         </div>
-                        <div class="col-xs-6">
-                          <button onClick="location.href='detailed.php?dataset_id=<?php echo $back ?>'" class="btn btn-lg btn-default btn-validasi-css" type="button">Next</button>
-                        </div>
+                        <?php } ?>
                     </div>
                 </form>
             </div>
           </div>
         </div>
       <div class="col-xs-6">
-          <div class="form-signin">
+          <div class="form-css">
             <form method="post">
                 <div class="form-group" style="padding-top: 50px;">
                     <label>IMG DATA ID</label>
-                    <p style="border-style: ridge; padding: 12px;"><?php echo $data['file_name'] ?></p>
+                    <p style="border-style: ridge; padding: 12px;"><?php echo $img_id ?></p>
                 </div>
                 <div class="form-group">
                     <label>HASIL VALIDASI</label>
                     <p style="border-style: ridge; padding: 12px;"><?php 
-                    if($data['validate'] == NULL){
+                    if($dat_validate == NULL){
                         echo "Belum Validasi";
                     } else {
-                        echo $data['validate']; 
+                        echo $dat_validate; 
                     }?></p>
                 </div>
                 <div >
