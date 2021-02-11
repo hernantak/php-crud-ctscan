@@ -3,7 +3,7 @@
     if(!isset($_GET['dataset_id'])){
         die("Error: Dataset ID Tidak Dimasukkan");
     }
-    $query = $db->prepare("SELECT * FROM `image_data` WHERE dataset_id = :dataset_id ORDER BY file_name ASC");
+    $query = $db->prepare("SELECT * FROM `image_data` WHERE dataset_id = :dataset_id");
     $query->bindParam(":dataset_id", $_GET['dataset_id']);
     $query->execute();
 ?>
@@ -48,7 +48,7 @@
 							<a href="validasi.php?dataset_id=<?php echo $data['dataset_id']?>&file_name=<?php echo $data['file_name']?>" class="btn btn-default"><span class="glyphicon glyphicon-check"></span></a>
 						</td>
 						<td class="align-middle text-center">
-							<a href="delete_img.php?file_name=<?php echo $data['file_name']?>" class="btn btn-danger"><span class="glyphicon glyphicon-erase"></span></a>
+							<a href="delete_img.php?dataset_id=<?php echo $data['dataset_id']?>&file_name=<?php echo $data['file_name']?>" class="btn btn-danger"><span class="glyphicon glyphicon-erase"></span></a>
 						</td>
 					</tr>
 				<?php

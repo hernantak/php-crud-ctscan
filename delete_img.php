@@ -1,29 +1,21 @@
 <?php
     include 'koneksi.php';
 
-    if(isset($_GET["file_name"])){
+    $dataset_id=$_GET['dataset_id'];
+    $file_name = $_GET['file_name'];
 
-    $sqlcek = $db->prepare("SELECT * FROM `image_data` WHERE file_name=:file_name");
+    $sqlcek = $db->prepare("SELECT * FROM `image_data` WHERE file_name='$file_name' AND dataset_id='$dataset_id'");
     $sqlcek->bindParam(":file_name", $_GET["file_name"]);
-    $sqlcek->execute(); // Eksekusi / Jalankan query
-    $data = $sqlcek->fetch(); // Ambil data dari hasil eksekusi $sqlcek
+    $sqlcek->execute();
+    $data = $sqlcek->fetch();
 
-    // Cek apakah file fotonya ada di folder foto
     if(is_file($data["file_path"])) // Jika foto ada
         unlink($data["file_path"]); // Hapus file fotonya yang ada di folder foto
 
-
     //delete data
-    // Prepared statement untuk menghapus data
     $sql = $db->prepare("DELETE FROM `image_data` WHERE file_name=:file_name");
     $sql->bindParam(":file_name", $_GET["file_name"]);
-    $sql->execute(); // Eksekusi/Jalankan query  
+    $sql->execute(); 
 
-    }
-
-    $go = $db->prepare("SELECT * FROM image_data");
-    $go->execute(); // Eksekusi / Jalankan query
-    $loc = $go->fetch(); // Ambil data dari hasil eksekusi $sqlcek
-    $url = $loc['dataset_id'];
-    header("location: detailed.php"."?dataset_id=".$url);
+    header("location: detailed.php"."?dataset_id=".$dataset_id);
 ?>
