@@ -41,11 +41,10 @@
     </head>
     <body>
          <div class="menu-css">
-            <button onClick="location.href='data.php'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> DATASET ID <?php echo $data['dataset_id'] ?></button>
+            <button onClick="location.href='index.php?page=data'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> DATASET ID <?php echo $data['dataset_id'] ?></button>
         </div>
         
         <div style="padding: 0 15px;">
-            <div id="pesan-sukses" class="alert alert-success"></div>
             <div id="viewDetailed"><?php include "viewDetailed.php"; ?></div>
         </div>
         

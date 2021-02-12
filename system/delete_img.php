@@ -17,5 +17,5 @@
     $sql->bindParam(":file_name", $_GET["file_name"]);
     $sql->execute(); 
 
-    header("location: detailed.php"."?dataset_id=".$dataset_id);
+    header("location: index.php?page=detailed&dataset_id=".$dataset_id);
 ?>

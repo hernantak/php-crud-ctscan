@@ -130,7 +130,7 @@
 </head>
 <body>
     <div class="menu-css">
-        <button onClick="location.href='detailed.php?dataset_id=<?php echo $dataset_id ?>'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> VALIDASI HASIL DATASET CTSCAN <?php echo $data['file_name'] ?></button>
+        <button onClick="location.href='index.php?page=detailed&dataset_id=<?php echo $dataset_id ?>'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> VALIDASI HASIL DATASET CTSCAN <?php echo $data['file_name'] ?></button>
     </div>
     <div>
         <div class="col-xs-6">
@@ -145,14 +145,14 @@
                     <div class="row row-no-gutters" style="margin-top: 5px;">
                         <?php if($prev !== NULL){ ?>
                             <div class="col-xs-6">
-                              <button onClick="location.href='validasi.php?dataset_id=<?php echo $dataset_id ?>&file_name=<?php echo $prev ?>'" class="btn btn-lg btn-default btn-validasi-css" type="button">Back</button>
+                              <button onClick="location.href='index.php?page=validasi&dataset_id=<?php echo $dataset_id ?>&file_name=<?php echo $prev ?>'" class="btn btn-lg btn-default btn-validasi-css" type="button">Back</button>
                             </div>
                         <?php 
                         } 
                         if($next !== NULL){
                         ?>
                         <div class="col-xs-6">
-                          <button onClick="location.href='validasi.php?dataset_id=<?php echo $dataset_id ?>&file_name=<?php echo $next ?>'" class="btn btn-lg btn-primary btn-validasi-css" type="button">Next</button>
+                          <button onClick="location.href='index.php?page=validasi&dataset_id=<?php echo $dataset_id ?>&file_name=<?php echo $next ?>'" class="btn btn-lg btn-primary btn-validasi-css" type="button">Next</button>
                         </div>
                         <?php } ?>
                     </div>

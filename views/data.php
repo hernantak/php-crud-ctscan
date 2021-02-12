@@ -30,47 +30,12 @@
         </style>
     </head>
     <body>
-        <!-- Membuat Menu Header / Navbar -->
-<!--        <nav class="navbar navbar-inverse" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#" style="color: white;"><b>CRUD AJAX</b></a>
-                </div>
-                <p class="navbar-text navbar-right hidden-xs">
-                    <a href="http://www.mynotescode.com" style="color: white;" class="navbar-link">www.mynotescode.com</a>
-                </p>
-            </div>
-        </nav> -->
          <div class="menu-css">
-            <button onClick="location.href='index.php'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> DASHBOARD DATA CTSCAN</button>
+            <button onClick="location.href='index.php?page=home'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> DASHBOARD DATA CTSCAN</button>
         </div>
-        
         <div style="padding: 0 15px;">
-<!--            <button type="button" id="btn-tambah" data-toggle="modal" data-target="#form-modal" class="btn btn-success pull-right">
-                <span class="glyphicon glyphicon-plus"></span> &nbsp;Tambah Data
-            </button> -->
-<!--            <h2>Data CTScan</h2>    
- -->            
-
-            <div id="pesan-sukses" class="alert alert-success"></div>
-            
-            <!--
-            -- Buat sebuah div dengan id="view" yang digunakan untuk menampung data 
-            -- yang ada pada tabel siswa di database
-            -->
             <div id="view"><?php include "view.php"; ?></div>
         </div>
-        
-        <!-- 
-        -- Membuat sebuah tag div untuk Modal Dialog untuk Form Tambah dan Ubah
-        -- Beri id "form-modal" untuk tag div tersebut
-        -->
         <div id="form-modal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -82,21 +47,8 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <!-- Beri id "pesan-error" untuk menampung pesan error -->
                         <div id="pesan-error" class="alert alert-danger"></div>
-                        
-                        <!-- Beri id "form" untuk tag form -->
                         <form id="form">
-                            <!-- 
-                            -- Beri id untuk masing-masing form input
-                            -- textbox nis : id="nis"
-                            -- textbox nama : id="nama"
-                            -- combobox jenis kelamin : id="jenis_kelamin"
-                            -- textbox no.telepon : id="telp"
-                            -- textarea alamat : id="alamat"
-                            -- checkbox foto : id="checkbox_foto"
-                            -- input file foto : id="foto"
-                            -->
                             <div class="form-group">
                                 <label>DATASET ID</label>
                                 <input type="text" class="form-control" id="dataset_id" name="dataset_id">

@@ -19,7 +19,7 @@
       $query->bindParam(":medic_record", $medic_record);
       $query->bindParam(":dataset_id", $_GET['dataset_id']);
       $query->execute();
-      header("location: data.php");
+      header("location: index.php?page=data");
   }
 ?>
 

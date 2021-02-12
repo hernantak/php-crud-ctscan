@@ -70,7 +70,7 @@
 
     // echo $datset_id_img;
 
-    header("location: data.php");
+    header("location: index.php?page=data");
   }
 ?>
 <!DOCTYPE html>
@@ -128,7 +128,7 @@
   </head>  
   <body>
     <div class="menu-css">
-      <button onClick="location.href='index.php'" class="btn btn-lg btn-css" type="submit"><i class="fas fa-arrow-circle-left"></i> UPLOAD DATA CTSCAN</button>
+      <button onClick="location.href='index.php?page=home'" class="btn btn-lg btn-css" type="submit"><i class="fas fa-arrow-circle-left"></i> UPLOAD DATA CTSCAN</button>
     </div>
 
     <div class="container">

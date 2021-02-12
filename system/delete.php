@@ -41,5 +41,5 @@
         rmdir($path);
     }  
 
-    header("location: data.php");
+    header("location: index.php?page=data");
 ?>

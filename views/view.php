@@ -22,7 +22,7 @@
                 if($query->rowCount() == 0){?>
                     <div id="box-alret">Data Rekaman Kosong</div>
                     <div>
-                        <button onClick="location.href='upload.php'" style="margin-top: 10px;" class="btn btn-sm btn-primary">Tambah Data</button>
+                        <button onClick="location.href='index.php?page=upload'" style="margin-top: 10px;" class="btn btn-sm btn-primary">Tambah Data</button>
                     </div>
             <?php
                 }
@@ -56,16 +56,16 @@
                                 ?>    
                             </td>
                             <td class="align-middle text-center">
-                                <a href="download.php?dataset_id=<?php echo $value['dataset_id']?>" class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span></a>
+                                <a href="<?php echo $base_url.'index.php?page=download&dataset_id='.$value['dataset_id']?>" class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span></a>
                             </td>   
                             <td class="align-middle text-center">
-                                <a href="detailed.php?dataset_id=<?php echo $value['dataset_id']?>" class="btn btn-default"><span class="glyphicon glyphicon-check"></span></a>
+                                <a href="<?php echo $base_url.'index.php?page=detailed&dataset_id='.$value['dataset_id']?>" class="btn btn-default"><span class="glyphicon glyphicon-check"></span></a>
                             </td>   
                             <td class="align-middle text-center">
-                                <a href="edit.php?dataset_id=<?php echo $value['dataset_id']?>" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="<?php echo $base_url.'index.php?page=edit&dataset_id='.$value['dataset_id']?>" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></a>
                             </td>
                             <td class="align-middle text-center">
-                                <a href="delete.php?dataset_id=<?php echo $value['dataset_id']?>" class="btn btn-danger"><span class="glyphicon glyphicon-erase"></span></a>
+                                <a href="<?php echo $base_url.'index.php?page=delete&dataset_id='.$value['dataset_id']?>" class="btn btn-danger"><span class="glyphicon glyphicon-erase"></span></a>
                             </td>
                         </tr>
                         <?php

@@ -45,10 +45,10 @@
 							}?>
 						</td>				
 						<td class="align-middle text-center">
-							<a href="validasi.php?dataset_id=<?php echo $data['dataset_id']?>&file_name=<?php echo $data['file_name']?>" class="btn btn-default"><span class="glyphicon glyphicon-check"></span></a>
+							<a href="<?php echo $base_url.'index.php?page=validasi&dataset_id='.$data['dataset_id'].'&file_name='.$data['file_name']?>" class="btn btn-default"><span class="glyphicon glyphicon-check"></span></a>
 						</td>
 						<td class="align-middle text-center">
-							<a href="delete_img.php?dataset_id=<?php echo $data['dataset_id']?>&file_name=<?php echo $data['file_name']?>" class="btn btn-danger"><span class="glyphicon glyphicon-erase"></span></a>
+							<a href="<?php echo $base_url.'index.php?page=delete_img&dataset_id='.$data['dataset_id'].'&file_name='.$data['file_name']?>" class="btn btn-danger"><span class="glyphicon glyphicon-erase"></span></a>
 						</td>
 					</tr>
 				<?php
