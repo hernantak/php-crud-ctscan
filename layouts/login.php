@@ -12,7 +12,7 @@ include "system/koneksi.php";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login + Hak Akses (PHP)</title>
+    <title>CTScan</title>
 
     <!-- Load File CSS Bootstrap  -->
     <link href="<?php echo $base_url.'css/bootstrap.min.css'; ?>" rel="stylesheet">
@@ -36,7 +36,8 @@ include "system/koneksi.php";
         margin: 0 auto;
     }
     .form-signin .form-signin-heading{
-        margin-bottom: 10px;
+        margin-bottom: 40px;
+        text-align-last: center;
     }
     .form-signin .form-control {
         position: relative;
@@ -55,7 +56,7 @@ include "system/koneksi.php";
 <body>
     <div class="container">
         <div class="form-signin">
-            <h2 class="form-signin-heading">Silahkan login</h2>
+            <h2 class="form-signin-heading">CTScan login</h2>
             <?php include "config.php"; // Load file config.php ?>
         </div>
     </div>
