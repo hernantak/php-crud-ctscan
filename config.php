@@ -41,14 +41,6 @@ if(isset($_SESSION['username'])){ // Jika sudah login
 			include "system/delete.php";
 			break;			
 
-			// case 'case_selanjutnya':
-			// include "views/case_selanjutnya.php";
-			// break;
-
-			// case 'case_selanjutnya':
-			// include "views/case_selanjutnya.php";
-			// break;
-
 			default: // Ini untuk set default jika isi dari $page tidak ada
 			// Set halaman 404 Not Found
 			header("HTTP/1.0 404 Not Found");
@@ -74,18 +66,6 @@ if(isset($_SESSION['username'])){ // Jika sudah login
 			case 'kontak': // $page == kontak (jika isi dari $page adalah kontak)
 			include "views/kontak.php"; // load file kontak.php yang ada di folder views
 			break;
-
-			// case 'case_selanjutnya':
-			// include "views/case_selanjutnya.php";
-			// break;
-
-			// case 'case_selanjutnya':
-			// include "views/case_selanjutnya.php";
-			// break;
-
-			// case 'case_selanjutnya':
-			// include "views/case_selanjutnya.php";
-			// break;
 
 			default: // Ini untuk set default jika isi dari $page tidak ada
 			// Set halaman 404 Not Found

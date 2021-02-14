@@ -1,5 +1,5 @@
 <?php
-include "system/koneksi.php";
+    include "system/koneksi.php";
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +64,7 @@ include "system/koneksi.php";
 </head>
 <body>
     <div class="container">
-        <div class="form-signin">
+        <div style="margin-top: 50px;" class="form-signin">
             <h3 class="form-signin-heading">Distribusi Data Otomatis dan Validasi Hasil Analisis</h2>
             <h3 class="form-signin-heading">Data CT Scan</h2>
         </div>

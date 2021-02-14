@@ -1,10 +1,7 @@
 <?php
-    include 'koneksi.php';
+    include "system/koneksi.php";
     $query = $db->prepare("SELECT * FROM dataset");
     $query->execute();
-
-    // $query_img = $db->prepare("SELECT * FROM image_data");
-    // $query_img->execute();
 ?>
 <style>
     #box-alret{

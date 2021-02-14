@@ -6,5 +6,5 @@ $database = 'skirpsi_db'; // Nama databasenya
 $base_url = 'http://localhost/'; // Set Base Url Web
 
 // Koneksi ke MySQL dengan PDO
-$pdo = new PDO('mysql:host='.$host.';dbname='.$database, $username, $password);
+$db = new PDO('mysql:host='.$host.';dbname='.$database, $username, $password);
 ?>
