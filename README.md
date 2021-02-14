@@ -6,7 +6,7 @@ Change connection MySql in :
 ```php
     $host = 'localhost'; // Host name
     $username = 'root'; // Username
-    $password = 'root'; // Password (Fill in if using a password)
-    $database = 'skirpsi_db'; // Database name
+    $password = ''; // Password (Fill in if using a password)
+    $database = 'database_name'; // Database name
     $base_url = 'http://localhost/'; // Set Base Url Web
 ```
