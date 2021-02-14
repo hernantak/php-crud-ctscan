@@ -10,7 +10,6 @@
         text-align: center;
         font-weight: bold;
     }    
-
 </style>
 <div class="table-responsive">
     <table class="table table-bordered">  
@@ -49,8 +48,7 @@
                                     if(($value_img['dataset_id'] === $temp) && ($value_img['validate'] !== NULL))                        
                                        echo "Sudah Validasi";
                                     else 
-                                        echo "Belum Validasi";
-                                ?>    
+                                        echo "Belum Validasi";?>    
                             </td>
                             <td class="align-middle text-center">
                                 <a href="<?php echo $base_url.'index.php?page=download&dataset_id='.$value['dataset_id']?>" class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span></a>
@@ -68,7 +66,6 @@
                         <?php
                             $no++; 
                     }
-                }
-                ?>
+                }?>
     </table>
 </div>

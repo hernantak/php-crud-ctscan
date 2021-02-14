@@ -89,16 +89,16 @@
     <style>
       body {
       }
-      .form-signin {
+      .form-css {
         max-width: 500px;
         padding: 15px;
         margin: 0 auto;
       }
-      .form-signin .form-signin-heading{
+      .form-css .form-css-heading{
         margin-bottom: 10px;
         text-align: center;
       }
-      .form-signin .form-control {
+      .form-css .form-control {
         position: relative;
         height: auto;
         -webkit-box-sizing: border-box;
@@ -107,7 +107,7 @@
         padding: 10px;
         font-size: 16px;
       }
-      .form-signin .form-control:focus {
+      .form-css .form-control:focus {
         z-index: 2;
       }
       .btn-block {
@@ -132,7 +132,7 @@
     </div>
 
     <div class="container">
-      <div class="form-signin">
+      <div class="form-css">
         <form method="post" action='' enctype='multipart/form-data'>
           <div class="form-group">
               <label style="display: block !important;">NAMA DATASET</label>
