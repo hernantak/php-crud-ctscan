@@ -72,6 +72,11 @@
     .btn-css {
       background-color: white;
     }
+    .btn-edit-css {
+        display: block;
+        width: 100%;
+        margin-top: 45px;
+    }
   </style>
   </head>
  <body>
@@ -89,9 +94,12 @@
               <label>NOMOR REKAM MEDIS</label>
               <input class="form-control" name="medic_record" type="text" size="50" value="<?php echo $data['medic_record'] ?>">
             </div>
-            <div class="btn-cnter-css">
-              <input type="submit" name="submit" value="EDIT">
+            <div class="col-xs-6">
+              <input class="btn btn-lg btn-primary btn-edit-css" type="submit" name="submit" value="EDIT">
             </div>
+            <div class="col-xs-6">
+              <input onClick="location.href='index.php?page=data'" class="btn btn-lg btn-default btn-edit-css" type="button" value="CANCEL">
+            </div>            
         </form>
       </div>
     </div>

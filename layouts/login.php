@@ -56,7 +56,7 @@
 <body>
     <div class="container">
         <div class="form-signin">
-            <h2 class="form-signin-heading">CTScan login</h2>
+            <h2 class="form-signin-heading">CTScan Login</h2>
             <?php include "config.php"; // Load file config.php ?>
         </div>
     </div>
