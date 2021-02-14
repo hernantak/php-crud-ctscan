@@ -36,104 +36,11 @@
         <div style="padding: 0 15px;">
             <div id="view"><?php include "view.php"; ?></div>
         </div>
-        <div id="form-modal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">
-                            <!-- Beri id "modal-title" untuk tag span pada judul modal -->
-                            <span id="modal-title"></span>
-                        </h4>
-                    </div>
-                    <div class="modal-body">
-                        <div id="pesan-error" class="alert alert-danger"></div>
-                        <form id="form">
-                            <div class="form-group">
-                                <label>DATASET ID</label>
-                                <input type="text" class="form-control" id="dataset_id" name="dataset_id">
-                            </div>
-                            <div class="form-group">
-                                <label>NAMA DATASET</label>
-                                <input type="text" class="form-control" id="dataset_name" name="dataset_name">
-                            </div>
-                            <div class="form-group">
-                                <label>NO REKAM MEDIS</label>
-                                <input type="text" class="form-control" id="medic_record" name="medic_record">
-                            </div>
-                            <div class="form-group">
-                                <label>STATUS</label>
-                                <input type="text" class="form-control" id="status" name="status">
-                            </div>
-                            <button type="reset" id="btn-reset"></button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <!-- Beri id "loading-simpan" untuk loading ketika klik tombol simpan -->
-                        <div id="loading-simpan" class="pull-left">
-                            <b>Sedang menyimpan...</b>
-                        </div>
-                        
-                        <!-- Beri id "loading-ubah" untuk loading ketika klik tombol ubah -->
-                        <div id="loading-ubah" class="pull-left">
-                            <b>Sedang mengubah...</b>
-                        </div>
-                        
-                        <!-- Beri id "btn-simpan" untuk tombol simpan nya -->
-                        <button type="button" class="btn btn-primary" id="btn-simpan">Simpan</button>
-                        
-                        <!-- Beri id "btn-ubah" untuk tombol simpan nya -->
-                        <button type="button" class="btn btn-primary" id="btn-ubah">Ubah</button>
-                        
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 
-        -- Membuat sebuah tag div untuk Modal Dialog untuk Form Tambah dan Ubah
-        -- Beri id "form-modal" untuk tag div tersebut
-        -->
-        <div id="delete-modal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">
-                            Konfirmasi
-                        </h4>
-                    </div>
-                    <div class="modal-body">
-                        <!--
-                        -- Beri id "data-nis" untuk textbox nis yang digunakan untuk menampung
-                        -- data nis yang akan dihapus
-                        -->
-                        <input type="hidden" id="data-nis">
-                        
-                        Apakah anda yakin ingin menghapus data ini?
-                    </div>
-                    <div class="modal-footer">
-                        <!-- Beri id "loading-hapus" untuk loading ketika klik tombol hapus -->
-                        <div id="loading-hapus" class="pull-left">
-                            <b>Sedang meghapus...</b>
-                        </div>
-                        
-                        <!-- Beri id "btn-hapus" untuk tombol hapus nya -->
-                        <button type="button" class="btn btn-primary" id="btn-hapus">Ya</button>
-                        
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                    </div>
-                </div>
-            </div>
-        </div>
         
         <!-- Load File jquery.min.js yang ada difolder js -->
         <script src="js/jquery.min.js"></script>
-        
         <!-- Load File bootstrap.min.js yang ada difolder js -->
         <script src="js/bootstrap.min.js"></script>
-        
         <!-- Load file ajax.js yang ada di folder js -->
         <script src="js/ajax.js"></script>
     </body>

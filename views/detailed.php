@@ -1,5 +1,6 @@
 <?php
     include "system/koneksi.php";
+
     if(!isset($_GET['dataset_id'])){
         die("Error: Dataset ID Tidak Dimasukkans");
     }
@@ -43,17 +44,14 @@
          <div class="menu-css">
             <button onClick="location.href='index.php?page=data'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> DATASET ID <?php echo $data['dataset_id'] ?></button>
         </div>
-        
         <div style="padding: 0 15px;">
             <div id="viewDetailed"><?php include "viewDetailed.php"; ?></div>
         </div>
         
         <!-- Load File jquery.min.js yang ada difolder js -->
         <script src="js/jquery.min.js"></script>
-        
         <!-- Load File bootstrap.min.js yang ada difolder js -->
         <script src="js/bootstrap.min.js"></script>
-        
         <!-- Load file ajax.js yang ada di folder js -->
         <script src="js/ajax.js"></script>
     </body>

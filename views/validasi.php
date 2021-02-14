@@ -53,7 +53,6 @@
         header("Refresh:0");
     }    
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,8 +148,7 @@
                             </div>
                         <?php 
                         } 
-                        if($next !== NULL){
-                        ?>
+                        if($next !== NULL){ ?>
                         <div class="col-xs-6">
                           <button onClick="location.href='index.php?page=validasi&dataset_id=<?php echo $dataset_id ?>&file_name=<?php echo $next ?>'" class="btn btn-lg btn-primary btn-validasi-css" type="button">Next</button>
                         </div>
@@ -188,6 +186,5 @@
         </div>
       </div>
     </div>
-
 </body>
 </html>

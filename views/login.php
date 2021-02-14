@@ -1,12 +1,11 @@
 <?php
-// Cek apakah terdapat cookie dengan nama message
-if(isset($_COOKIE["message"])){ // Jika ada
-    echo '<div class="alert alert-danger">'.$_COOKIE["message"].'</div>'; // Tampilkan pesannya
+    // Cek apakah terdapat cookie dengan nama message
+    if(isset($_COOKIE["message"])){ // Jika ada
+        echo '<div class="alert alert-danger">'.$_COOKIE["message"].'</div>'; // Tampilkan pesannya
 
-    setcookie("message","delete",time()-1, "/"); // Kita delete cookie message
-}
+        setcookie("message","delete",time()-1, "/"); // Kita delete cookie message
+    }
 ?>
-
 <form method="post" action="system/login.php">
     <div class="form-group">
         <label>Username</label>

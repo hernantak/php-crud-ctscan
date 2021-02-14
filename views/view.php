@@ -22,7 +22,7 @@
                     </div>
             <?php
                 }
-                else {?>
+                else { ?>
                     <tr>
                         <th class="text-center">NO</th>
                         <th>DATASET ID</th>
@@ -66,6 +66,6 @@
                         <?php
                             $no++; 
                     }
-                }?>
+                } ?>
     </table>
 </div>

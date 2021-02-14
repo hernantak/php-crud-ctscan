@@ -68,8 +68,6 @@
       }
     }
 
-    // echo $datset_id_img;
-
     header("location: index.php?page=data");
   }
 ?>
@@ -147,7 +145,6 @@
               <input type='file' name='files[]' multiple />
           </div>                       
           <div class="btn-cnter-css">
-<!--             <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">SIMPAN</button>              -->
             <input type='submit' value='Submit' name='submit' />
           </div>
         </form>
@@ -156,7 +153,6 @@
 
   <!-- Load File jquery.min.js yang ada difolder js -->
   <script src="js/jquery.min.js"></script>
-  
   <!-- Load File bootstrap.min.js yang ada difolder js -->
   <script src="js/bootstrap.min.js"></script>
 

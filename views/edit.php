@@ -3,6 +3,7 @@
   if(!isset($_GET['dataset_id'])){
       die("[Error] Dataset ID Tidak Dimasukkan");
   }
+
   $query = $db->prepare("SELECT * FROM `dataset` WHERE dataset_id = :dataset_id");
   $query->bindParam(":dataset_id", $_GET['dataset_id']);
   $query->execute();
@@ -11,6 +12,7 @@
   }else{
       $data = $query->fetch();
   }
+  
   if(isset($_POST['submit'])){
       $dataset_name = htmlentities($_POST['dataset_name']);
       $medic_record = htmlentities($_POST['medic_record']);
@@ -22,7 +24,6 @@
       header("location: index.php?page=data");
   }
 ?>
-
 <!DOCTYPE html>
 <html>
   <head>
