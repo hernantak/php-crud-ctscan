@@ -68,8 +68,6 @@
       }
     }
 
-    // echo $datset_id_img;
-
     header("location: data.php");
   }
 ?>
@@ -89,16 +87,16 @@
     <style>
       body {
       }
-      .form-signin {
+      .form-css {
         max-width: 500px;
         padding: 15px;
         margin: 0 auto;
       }
-      .form-signin .form-signin-heading{
+      .form-css .form-css-heading{
         margin-bottom: 10px;
         text-align: center;
       }
-      .form-signin .form-control {
+      .form-css .form-control {
         position: relative;
         height: auto;
         -webkit-box-sizing: border-box;
@@ -107,7 +105,7 @@
         padding: 10px;
         font-size: 16px;
       }
-      .form-signin .form-control:focus {
+      .form-css .form-control:focus {
         z-index: 2;
       }
       .btn-block {
@@ -130,9 +128,8 @@
     <div class="menu-css">
       <button onClick="location.href='index.php'" class="btn btn-lg btn-css" type="submit"><i class="fas fa-arrow-circle-left"></i> UPLOAD DATA CTSCAN</button>
     </div>
-
     <div class="container">
-      <div class="form-signin">
+      <div class="form-css">
         <form method="post" action='' enctype='multipart/form-data'>
           <div class="form-group">
               <label style="display: block !important;">NAMA DATASET</label>
@@ -147,7 +144,6 @@
               <input type='file' name='files[]' multiple />
           </div>                       
           <div class="btn-cnter-css">
-<!--             <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">SIMPAN</button>              -->
             <input type='submit' value='Submit' name='submit' />
           </div>
         </form>
@@ -156,7 +152,6 @@
 
   <!-- Load File jquery.min.js yang ada difolder js -->
   <script src="js/jquery.min.js"></script>
-  
   <!-- Load File bootstrap.min.js yang ada difolder js -->
   <script src="js/bootstrap.min.js"></script>
 

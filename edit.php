@@ -3,6 +3,7 @@
   if(!isset($_GET['dataset_id'])){
       die("[Error] Dataset ID Tidak Dimasukkan");
   }
+
   $query = $db->prepare("SELECT * FROM `dataset` WHERE dataset_id = :dataset_id");
   $query->bindParam(":dataset_id", $_GET['dataset_id']);
   $query->execute();
@@ -11,6 +12,7 @@
   }else{
       $data = $query->fetch();
   }
+
   if(isset($_POST['submit'])){
       $dataset_name = htmlentities($_POST['dataset_name']);
       $medic_record = htmlentities($_POST['medic_record']);
@@ -19,6 +21,7 @@
       $query->bindParam(":medic_record", $medic_record);
       $query->bindParam(":dataset_id", $_GET['dataset_id']);
       $query->execute();
+
       header("location: data.php");
   }
 ?>
@@ -36,16 +39,16 @@
     <link href="<?php echo $base_url.'css/bootstrap.min.css'; ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">      
   <style>
-    .form-signin {
+    .form-css {
         max-width: 500px;
         padding: 15px;
         margin: 0 auto;
     }
-    .form-signin .form-signin-heading{
+    .form-css .form-css-heading{
         margin-bottom: 10px;
         text-align: center;
     }
-    .form-signin .form-control {
+    .form-css .form-control {
         position: relative;
         height: auto;
         -webkit-box-sizing: border-box;
@@ -54,7 +57,7 @@
         padding: 10px;
         font-size: 16px;
     }
-    .form-signin .form-control:focus {
+    .form-css .form-control:focus {
         z-index: 2;
     }
     .btn-block {
@@ -78,7 +81,7 @@
     <button onClick="location.href='data.php'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> EDIT DATASET</button>
   </div>
     <div class="container">
-        <div class="form-signin">  
+        <div class="form-css">  
           <form method="post">
             <div class="form-group">
               <label>NAMA DATASET</label>

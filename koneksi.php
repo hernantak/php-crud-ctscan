@@ -1,13 +1,3 @@
-<!-- <?php
-$host = 'localhost'; // Nama hostnya
-$username = 'root'; // Username
-$password = 'root'; // Password (Isi jika menggunakan password)
-$database = 'skirpsi_db'; // Nama databasenya
-
-// Koneksi ke MySQL dengan PDO
-$pdo = new PDO('mysql:host='.$host.';dbname='.$database, $username, $password);
-?> -->
-
 <?php
     $host = "localhost";
     $dbname = "skirpsi_db";

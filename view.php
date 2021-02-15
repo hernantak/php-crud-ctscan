@@ -2,9 +2,6 @@
     include 'koneksi.php';
     $query = $db->prepare("SELECT * FROM dataset");
     $query->execute();
-
-    // $query_img = $db->prepare("SELECT * FROM image_data");
-    // $query_img->execute();
 ?>
 <style>
     #box-alret{
@@ -13,7 +10,6 @@
         text-align: center;
         font-weight: bold;
     }    
-
 </style>
 <div class="table-responsive">
     <table class="table table-bordered">  
@@ -26,7 +22,7 @@
                     </div>
             <?php
                 }
-                else {?>
+                else { ?>
                     <tr>
                         <th class="text-center">NO</th>
                         <th>DATASET ID</th>
@@ -52,8 +48,7 @@
                                     if(($value_img['dataset_id'] === $temp) && ($value_img['validate'] !== NULL))                        
                                        echo "Sudah Validasi";
                                     else 
-                                        echo "Belum Validasi";
-                                ?>    
+                                        echo "Belum Validasi"; ?>    
                             </td>
                             <td class="align-middle text-center">
                                 <a href="download.php?dataset_id=<?php echo $value['dataset_id']?>" class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span></a>
@@ -71,7 +66,6 @@
                         <?php
                             $no++; 
                     }
-                }
-                ?>
+                } ?>
     </table>
 </div>

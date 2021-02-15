@@ -2,7 +2,6 @@
     include 'koneksi.php';
 
     if(isset($_GET["dataset_id"])){
-
         $query_dat = $db->prepare("SELECT * FROM `image_data` WHERE dataset_id=:dataset_id");
         $query_dat->bindParam(":dataset_id", $_GET["dataset_id"]);
         $query_dat->execute();
@@ -24,7 +23,6 @@
         // $data_dat = $sqlcek->fetch(); // Ambil data dari hasil eksekusi $sqlcek
 
         while($data = $sqlcek->fetch()){ 
-
         // Cek apakah file fotonya ada di folder foto
         if(is_file($data["file_path"])) // Jika foto ada
             unlink($data["file_path"]); // Hapus file fotonya yang ada di folder foto

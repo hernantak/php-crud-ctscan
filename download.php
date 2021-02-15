@@ -1,15 +1,5 @@
 <?php
-
-    $host = "localhost";
-    $dbname = "skirpsi_db";
-    $username = "root";
-    $password = "root";
-    try {
-        $db = new PDO("mysql:host={$host};dbname={$dbname}", $username, $password);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $exception){
-        die("Connection error: " . $exception->getMessage());
-    }
+    include 'koneksi.php';
 
     if(isset($_GET["dataset_id"])){
         $query_dat = $db->prepare("SELECT * FROM `image_data` WHERE dataset_id=:dataset_id");
@@ -60,6 +50,8 @@
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
         header('Content-Length: ' . filesize($zip_file));
+        ob_clean();
+        flush();       
         readfile($zip_file);
 
         if(is_file($zip_file)) 

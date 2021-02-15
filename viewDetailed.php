@@ -2,7 +2,8 @@
     include 'koneksi.php';
     if(!isset($_GET['dataset_id'])){
         die("Error: Dataset ID Tidak Dimasukkan");
-    }
+	}
+	
     $query = $db->prepare("SELECT * FROM `image_data` WHERE dataset_id = :dataset_id");
     $query->bindParam(":dataset_id", $_GET['dataset_id']);
     $query->execute();
@@ -23,7 +24,7 @@
                 <div id="box-alret">Data Gambar Kosong</div>
         <?php
             }
-            else {?>
+            else { ?>
 				<tr>
 					<th class="text-center">NO</th>
 					<th>IMG DATA ID</th>
@@ -32,7 +33,7 @@
 					<th colspan="2" class="text-center"><span class="glyphicon glyphicon-cog"></span></th>
 					</tr>     
 	            <?php        
-				while($data = $query->fetch()){?>
+				while($data = $query->fetch()){ ?>
 					<tr>
 						<td class="align-middle text-center"><?php echo $no; ?></td>
 						<td class="align-middle"><?php echo $data['file_name']; ?></td>
@@ -42,7 +43,7 @@
 								echo "Belum Validasi";
 							} else {
 								echo $data['validate']; 
-							}?>
+							} ?>
 						</td>				
 						<td class="align-middle text-center">
 							<a href="validasi.php?dataset_id=<?php echo $data['dataset_id']?>&file_name=<?php echo $data['file_name']?>" class="btn btn-default"><span class="glyphicon glyphicon-check"></span></a>
@@ -54,7 +55,6 @@
 				<?php
 					$no++;
 				}
-			}
-		?>
+			} ?>
 	</table>
 </div>

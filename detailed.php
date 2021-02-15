@@ -3,6 +3,7 @@
     if(!isset($_GET['dataset_id'])){
         die("Error: Dataset ID Tidak Dimasukkans");
     }
+    
     $query = $db->prepare("SELECT * FROM `image_data` WHERE dataset_id = :dataset_id");
     $query->bindParam(":dataset_id", $_GET['dataset_id']);
     $query->execute();
@@ -45,16 +46,13 @@
         </div>
         
         <div style="padding: 0 15px;">
-            <div id="pesan-sukses" class="alert alert-success"></div>
             <div id="viewDetailed"><?php include "viewDetailed.php"; ?></div>
         </div>
         
         <!-- Load File jquery.min.js yang ada difolder js -->
         <script src="js/jquery.min.js"></script>
-        
         <!-- Load File bootstrap.min.js yang ada difolder js -->
         <script src="js/bootstrap.min.js"></script>
-        
         <!-- Load file ajax.js yang ada di folder js -->
         <script src="js/ajax.js"></script>
     </body>

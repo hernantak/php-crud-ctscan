@@ -1,7 +1,3 @@
-<?php
-include "system/koneksi.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,18 +25,17 @@ include "system/koneksi.php";
         padding-top: 40px;
         padding-bottom: 40px;
     }
-
-    .form-signin {
+    .form-css {
         max-width: 5000px;
         padding: 15px;
         padding-bottom: 130px;
         margin: 0 auto;
     }
-    .form-signin .form-signin-heading{
+    .form-css .form-css-heading{
         margin-bottom: 10px;
         text-align: center;
     }
-    .form-signin .form-control {
+    .form-css .form-control {
         position: relative;
         height: auto;
         -webkit-box-sizing: border-box;
@@ -49,7 +44,7 @@ include "system/koneksi.php";
         padding: 10px;
         font-size: 16px;
     }
-    .form-signin .form-control:focus {
+    .form-css .form-control:focus {
         z-index: 2;
     }
     .btn-block {
@@ -64,9 +59,9 @@ include "system/koneksi.php";
 </head>
 <body>
     <div class="container">
-        <div class="form-signin">
-            <h3 class="form-signin-heading">Distribusi Data Otomatis dan Validasi Hasil Analisis</h2>
-            <h3 class="form-signin-heading">Data CT Scan</h2>
+        <div class="form-css">
+            <h3 class="form-css-heading">Distribusi Data Otomatis dan Validasi Hasil Analisis</h2>
+            <h3 class="form-css-heading">Data CT Scan</h2>
         </div>
     </div>
     <div class="col-xs-6 add-center">

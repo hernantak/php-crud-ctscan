@@ -80,7 +80,6 @@
     body {
 
     }
-
     .form-css {
         max-width: 500px;
         padding: 15px;
@@ -138,7 +137,7 @@
             <img style="    width: 470px;height: 320px;padding-bottom: 10px;" 
                 src=<?php 
                 $url = rawurldecode("upload/".$dataset_id."/".$file_name);
-                echo $url;?>
+                echo $url; ?>
             >
             <div>
                 <form method="post">
@@ -149,8 +148,7 @@
                             </div>
                         <?php 
                         } 
-                        if($next !== NULL){
-                        ?>
+                        if($next !== NULL){ ?>
                         <div class="col-xs-6">
                           <button onClick="location.href='validasi.php?dataset_id=<?php echo $dataset_id ?>&file_name=<?php echo $next ?>'" class="btn btn-lg btn-primary btn-validasi-css" type="button">Next</button>
                         </div>
@@ -188,6 +186,5 @@
         </div>
       </div>
     </div>
-
 </body>
 </html>
