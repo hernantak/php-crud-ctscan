@@ -1,6 +1,12 @@
 # php-crud-ctscan
 
-Ganti data PDO di
-1. config.php
-2. koneksi.php
-3. download.php
+Change connection MySql in :
+`koneksi.php`
+
+```php
+    $host = 'localhost'; // Host name
+    $username = 'root'; // Username
+    $password = ''; // Password (Fill in if using a password)
+    $database = 'database_name'; // Database name
+    $base_url = 'http://localhost/'; // Set Base Url Web
+```
