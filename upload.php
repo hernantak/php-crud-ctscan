@@ -122,6 +122,11 @@
       .btn-css {
         background-color: white;
       }
+      .btn-upload-css {
+        display: block;
+        width: 100%;
+        margin-top: 45px;
+      }         
     </style>  
   </head>  
   <body>
@@ -144,7 +149,7 @@
               <input type='file' name='files[]' multiple />
           </div>                       
           <div class="btn-cnter-css">
-            <input type='submit' value='Submit' name='submit' />
+            <input class="btn btn-lg btn-primary btn-upload-css" type='submit' value='Upload' name='submit' />
           </div>
         </form>
       </div>
