@@ -47,10 +47,12 @@
     .form-css .form-control:focus {
         z-index: 2;
     }
-    .btn-block {
-        display: block;
-        width: 50%;
+    .btn-css {
+        background-color: white;
+        border-color: currentColor;
+        width: 65%;
         height: 140px;
+        text-align: center;
     }
     .add-center {
         text-align: -webkit-center;
@@ -64,11 +66,15 @@
             <h3 class="form-css-heading">Data CT Scan</h2>
         </div>
     </div>
-    <div class="col-xs-6 add-center">
-        <button onClick="location.href='upload.php'" class="btn btn-default btn-lg btn-block" type="button"><i class="fas fa-upload"></i> UPLOAD DATA</button>
-    </div>
-    <div class="col-xs-6 add-center">
-        <button onClick="location.href='data.php'" class="btn btn-default btn-lg btn-block" type="button"><i class="fas fa-eye"></i> LIHAT DAN VALIDASI DATA</button>
+    <div class="container">
+        <div class="form-css">
+            <div class="col-xs-6 add-center">
+                <button class="btn-css" onClick="location.href='upload.php'" type="button"><i class="fas fa-upload"></i> UPLOAD DATA</button>
+            </div>
+            <div class="col-xs-6 add-center">
+                <button class="btn-css" onClick="location.href='data.php'" type="button"><i class="fas fa-eye"></i> LIHAT DAN VALIDASI DATA</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
