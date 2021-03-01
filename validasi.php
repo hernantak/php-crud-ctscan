@@ -5,14 +5,6 @@
     }
     $dataset_id=$_GET['dataset_id'];
     $file_name = $_GET['file_name'];
-
-    //prev data
-    $prev;
-    $query_prev = $db->prepare("SELECT * FROM `image_data` WHERE file_name < '$file_name' AND dataset_id = '$dataset_id' ORDER BY file_name DESC LIMIT 1");
-    $query_prev->execute();
-    while($data_prev = $query_prev->fetch()){
-        $prev=$data_prev['file_name'];
-    }
     
     //next data
     $next;
@@ -21,6 +13,16 @@
     while($data_next = $query_next->fetch()){ 
         $next=$data_next['file_name'];
     }
+
+    //prev data
+
+    $prev;
+    $query_prev = $db->prepare("SELECT * FROM `image_data` WHERE file_name < '$file_name' AND dataset_id = '$dataset_id' ORDER BY file_name DESC LIMIT 1");
+    $query_prev->execute();
+    while($data_prev = $query_prev->fetch()){
+        if(!$prev)
+            $prev=$data_prev['file_name'];
+    }    
 
     //data
     $query_dat = $db->prepare("SELECT * FROM `image_data` WHERE file_name = '$file_name' AND dataset_id='$dataset_id'");
