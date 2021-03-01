@@ -150,7 +150,8 @@
           </div>                       
           <div class="btn-cnter-css">
             <input class="btn btn-lg btn-primary btn-upload-css" type='submit' value='Upload' name='submit' />
-          </div>
+            <input class="btn btn-lg btn-primary btn-upload-css" style="margin-top: 15px;" type='submit' value='Upload Otomatis' name='' />
+          </div>        
         </form>
       </div>
     </div>
