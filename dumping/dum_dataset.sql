@@ -50,15 +50,14 @@ DROP TABLE IF EXISTS `image_data`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `image_data` (
-  `img_id` int(11) NOT NULL AUTO_INCREMENT,
   `file_name` varchar(255) NOT NULL,
-  `dataset_id` varchar(20) NOT NULL,
+  `dataset_id` varchar(20) DEFAULT NULL,
   `validate` varchar(11) DEFAULT NULL,
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `file_path` varchar(255) NOT NULL,
-  PRIMARY KEY (`img_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`file_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

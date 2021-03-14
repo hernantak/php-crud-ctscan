@@ -19,7 +19,7 @@
 
         <!-- Load File bootstrap.min.css yang ada difolder css -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you viewDetailed the page via file:// -->

@@ -5,6 +5,14 @@
     }
     $dataset_id=$_GET['dataset_id'];
     $file_name = $_GET['file_name'];
+
+    //prev data
+    $prev;
+    $query_prev = $db->prepare("SELECT * FROM `image_data` WHERE file_name < '$file_name' AND dataset_id = '$dataset_id' ORDER BY file_name DESC LIMIT 1");
+    $query_prev->execute();
+    while($data_prev = $query_prev->fetch()){
+        $prev=$data_prev['file_name'];
+    }
     
     //next data
     $next;
@@ -13,16 +21,6 @@
     while($data_next = $query_next->fetch()){ 
         $next=$data_next['file_name'];
     }
-
-    //prev data
-
-    $prev;
-    $query_prev = $db->prepare("SELECT * FROM `image_data` WHERE file_name < '$file_name' AND dataset_id = '$dataset_id' ORDER BY file_name DESC LIMIT 1");
-    $query_prev->execute();
-    while($data_prev = $query_prev->fetch()){
-        if(!$prev)
-            $prev=$data_prev['file_name'];
-    }    
 
     //data
     $query_dat = $db->prepare("SELECT * FROM `image_data` WHERE file_name = '$file_name' AND dataset_id='$dataset_id'");
@@ -70,7 +68,7 @@
 
     <!-- Load File CSS Bootstrap  -->
     <link href="<?php echo $base_url.'css/bootstrap.min.css'; ?>" rel="stylesheet">
-    <link href="css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -130,6 +128,7 @@
     </style>
 </head>
 <body>
+    <?php $prev; $next; ?>
     <div class="menu-css">
         <button onClick="location.href='detailed.php?dataset_id=<?php echo $dataset_id ?>'" class="btn btn-lg btn-css" type="button"><i class="fas fa-arrow-circle-left"></i> VALIDASI HASIL DATASET CTSCAN <?php echo $data['file_name'] ?></button>
     </div>

@@ -83,8 +83,7 @@
     <title>CTScan</title>
     <!-- Load File CSS Bootstrap  -->
     <link href="<?php echo $base_url.'css/bootstrap.min.css'; ?>" rel="stylesheet">
-    <link href="css/all.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">    
     <style>
       body {
       }
@@ -123,11 +122,6 @@
       .btn-css {
         background-color: white;
       }
-      .btn-upload-css {
-        display: block;
-        width: 100%;
-        margin-top: 45px;
-      }         
     </style>  
   </head>  
   <body>
@@ -150,9 +144,8 @@
               <input type='file' name='files[]' multiple />
           </div>                       
           <div class="btn-cnter-css">
-            <input class="btn btn-lg btn-primary btn-upload-css" type='submit' value='Upload' name='submit' />
-            <input class="btn btn-lg btn-primary btn-upload-css" style="margin-top: 15px;" type='submit' value='Upload Otomatis' name='' />
-          </div>        
+            <input type='submit' value='Submit' name='submit' />
+          </div>
         </form>
       </div>
     </div>

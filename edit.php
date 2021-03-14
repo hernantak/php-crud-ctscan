@@ -37,8 +37,7 @@
     <meta name="description" content="">
     <meta name="author" content="">  
     <link href="<?php echo $base_url.'css/bootstrap.min.css'; ?>" rel="stylesheet">
-    <link href="css/all.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">      
   <style>
     .form-css {
         max-width: 500px;
@@ -75,11 +74,6 @@
     .btn-css {
       background-color: white;
     }
-    .btn-edit-css {
-      display: block;
-      width: 100%;
-      margin-top: 45px;
-    }        
   </style>
   </head>
  <body>
@@ -98,7 +92,7 @@
               <input class="form-control" name="medic_record" type="text" size="50" value="<?php echo $data['medic_record'] ?>">
             </div>
             <div class="btn-cnter-css">
-              <input class="btn btn-lg btn-primary btn-edit-css" type="submit" name="submit" value="EDIT">
+              <input type="submit" name="submit" value="EDIT">
             </div>
         </form>
       </div>
