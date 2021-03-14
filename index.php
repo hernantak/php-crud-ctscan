@@ -12,8 +12,7 @@
 
     <!-- Load File CSS Bootstrap  -->
     <link href="<?php echo $base_url.'css/bootstrap.min.css'; ?>" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
+    <link href="css/all.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -47,10 +46,12 @@
     .form-css .form-control:focus {
         z-index: 2;
     }
-    .btn-block {
-        display: block;
-        width: 50%;
+    .btn-css {
+        background-color: white;
+        border-color: currentColor;
+        width: 65%;
         height: 140px;
+        text-align: center;
     }
     .add-center {
         text-align: -webkit-center;
@@ -64,11 +65,15 @@
             <h3 class="form-css-heading">Data CT Scan</h2>
         </div>
     </div>
-    <div class="col-xs-6 add-center">
-        <button onClick="location.href='upload.php'" class="btn btn-default btn-lg btn-block" type="button"><i class="fas fa-upload"></i> UPLOAD DATA</button>
-    </div>
-    <div class="col-xs-6 add-center">
-        <button onClick="location.href='data.php'" class="btn btn-default btn-lg btn-block" type="button"><i class="fas fa-eye"></i> LIHAT DAN VALIDASI DATA</button>
+    <div class="container">
+        <div class="form-css">
+            <div class="col-xs-6 add-center">
+                <button class="btn-css" onClick="location.href='upload.php'" type="button"><i class="fas fa-upload"></i> UPLOAD DATA</button>
+            </div>
+            <div class="col-xs-6 add-center">
+                <button class="btn-css" onClick="location.href='data.php'" type="button"><i class="fas fa-eye"></i> LIHAT DAN VALIDASI DATA</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
